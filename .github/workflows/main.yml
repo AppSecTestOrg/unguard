@@ -5,6 +5,9 @@ on:
     branches:
       - "main"
   workflow_dispatch:
+
+permissions:
+  contents: "security-events: write"
   
 jobs: 
   build:   
@@ -21,3 +24,4 @@ jobs:
         uses: github/codeql-action/upload-sarif@v1       
         with:         
           sarif_file: snyk-sarif.json
+          token: ${{ secrets.GITHUB_TOKEN }}
