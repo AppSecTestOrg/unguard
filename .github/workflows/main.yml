@@ -18,9 +18,11 @@ jobs:
         uses: snyk/actions/node@master          
         continue-on-error: true              
         env:          
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}         
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --sarif-file-output=snyk.sarif
       - name: Upload SARIF file       
         uses: github/codeql-action/upload-sarif@v2       
         with:         
-          sarif_file: snyk-sarif.json
+          sarif_file: snyk.sarif
           token: ${{ secrets.GITHUB_TOKEN }}
