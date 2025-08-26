@@ -20,4 +20,4 @@ jobs:
       - name: Upload SARIF file       
         uses: github/codeql-action/upload-sarif@v1       
         with:         
-          sarif_file: snyk-sarif.json +++ CODE_WP_BLOCK_END +++
+          sarif_file: snyk-sarif.json
