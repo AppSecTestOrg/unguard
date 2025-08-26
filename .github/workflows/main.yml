@@ -15,12 +15,12 @@ jobs:
     steps:     
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/php@master          
+        uses: snyk/actions/python@master          
         continue-on-error: true              
         env:          
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --sarif-file-output=snyk.sarif --all-projects
+          args: --sarif-file-output=snyk.sarif
       - name: Upload SARIF file       
         uses: github/codeql-action/upload-sarif@v3       
         with:         
